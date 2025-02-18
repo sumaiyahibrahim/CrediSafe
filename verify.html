@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Credentials - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="verify.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="verify.html" class="active">Verify Credentials</a></li>
+                    <li><a href="my-credentials.html">My Credentials</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-btn">
+                        <img src="https://api.dicebear.com/6.x/initials/svg?seed=CS" alt="Profile" class="profile-img">
+                        <span>Sumaiyah</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="verify-main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Verify Your Credentials</h1>
+                <p class="hero-subtitle">Fast, secure verification powered by blockchain</p>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="credential-search" placeholder="Enter credential ID or scan QR code">
+                    <button class="scan-btn">
+                        <i class="fas fa-qrcode"></i>
+                    </button>
+                </div>
+                <div class="verification-types">
+                    <div class="type">
+                        <i class="fas fa-id-card"></i>
+                        <span>ID Documents</span>
+                    </div>
+                    <div class="type">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Academic</span>
+                    </div>
+                    <div class="type">
+                        <i class="fas fa-certificate"></i>
+                        <span>Professional</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .hero-section {
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(to bottom right, #f8faff, #eef2ff);
+                padding: 2rem;
+            }
+
+            .hero-content {
+                max-width: 700px;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 2.8rem;
+                color: #1a1f36;
+                margin-bottom: 1rem;
+                font-weight: 600;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+                color: #4a5568;
+                margin-bottom: 2.5rem;
+            }
+
+            .search-container {
+                position: relative;
+                max-width: 550px;
+                margin: 0 auto 2rem;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                display: flex;
+                align-items: center;
+                padding: 0.5rem 1rem;
+                transition: transform 0.2s, box-shadow 0.2s;
+            }
+
+            .search-container:focus-within {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+            }
+
+            .search-container i {
+                color: #4a5568;
+                font-size: 1.1rem;
+                margin-right: 1rem;
+            }
+
+            .search-container input {
+                flex: 1;
+                border: none;
+                padding: 1rem 0;
+                font-size: 1rem;
+                color: #1a1f36;
+                background: transparent;
+            }
+
+            .search-container input:focus {
+                outline: none;
+            }
+
+            .scan-btn {
+                background: none;
+                border: none;
+                color: #4a5568;
+                cursor: pointer;
+                padding: 0.5rem;
+                font-size: 1.1rem;
+                transition: color 0.2s;
+            }
+
+            .scan-btn:hover {
+                color: #2d3748;
+            }
+
+            .verification-types {
+                display: flex;
+                justify-content: center;
+                gap: 2rem;
+                margin-top: 3rem;
+            }
+
+            .type {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem;
+                border-radius: 12px;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            .type:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            }
+
+            .type i {
+                font-size: 1.5rem;
+                color: #4a5568;
+            }
+
+            .type span {
+                font-size: 0.9rem;
+                color: #4a5568;
+                font-weight: 500;
+            }
+
+            @media (max-width: 768px) {
+                .hero-title {
+                    font-size: 2.2rem;
+                }
+
+                .hero-subtitle {
+                    font-size: 1rem;
+                }
+
+                .verification-types {
+                    gap: 1rem;
+                }
+
+                .type {
+                    padding: 0.8rem;
+                }
+            }
+
+            @media (max-width: 480px) {
+                .verification-types {
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1rem;
+                }
+
+                .type {
+                    width: 100%;
+                    max-width: 200px;
+                    flex-direction: row;
+                    justify-content: center;
+                    gap: 1rem;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const searchContainer = document.querySelector('.search-container');
+                const searchInput = document.getElementById('credential-search');
+                const verificationTypes = document.querySelectorAll('.type');
+
+                // Smooth focus animation
+                searchInput.addEventListener('focus', () => {
+                    searchContainer.classList.add('focused');
+                });
+
+                searchInput.addEventListener('blur', () => {
+                    searchContainer.classList.remove('focused');
+                });
+
+                // Type selection animation
+                verificationTypes.forEach(type => {
+                    type.addEventListener('click', () => {
+                        type.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            type.style.transform = 'translateY(-3px)';
+                        }, 100);
+                    });
+                });
+
+                // QR Scanner button
+                const scanBtn = document.querySelector('.scan-btn');
+                scanBtn.addEventListener('click', () => {
+                    // QR scanner functionality would go here
+                    console.log('QR Scanner activated');
+                });
+            });
+        </script>
+
+        <!-- Credential Categories Grid -->
+        <section class="credential-categories">
+            <div class="category-grid">
+                <!-- Row 1 -->
+                <div class="category-card" data-category="identity">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-id-card"></i>
+                            <h3>Identity & Personal</h3>
+                            <p>Verify official identity documents and personal credentials</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>National ID Cards</li>
+                                <li><i class="fas fa-check"></i>Passports</li>
+                                <li><i class="fas fa-check"></i>Driver's Licenses</li>
+                                <li><i class="fas fa-check"></i>Birth Certificates</li>
+                            </ul>
+                            <a href="verify-identity.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="academic">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-graduation-cap"></i>
+                            <h3>Academic & Professional</h3>
+                            <p>Validate educational and professional certifications</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>University Degrees</li>
+                                <li><i class="fas fa-check"></i>Diplomas</li>
+                                <li><i class="fas fa-check"></i>Transcripts</li>
+                                <li><i class="fas fa-check"></i>Professional Certs</li>
+                            </ul>
+                            <a href="verify-academic.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="financial">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-money-check"></i>
+                            <h3>Financial & Legal</h3>
+                            <p>Verify financial and legal documentation</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Business Licenses</li>
+                                <li><i class="fas fa-check"></i>Tax Certificates</li>
+                                <li><i class="fas fa-check"></i>Court Records</li>
+                                <li><i class="fas fa-check"></i>Financial Statements</li>
+                            </ul>
+                            <a href="verify-financial.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="healthcare">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-hospital"></i>
+                            <h3>Healthcare & Medical</h3>
+                            <p>Validate medical licenses and health records</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Medical Licenses</li>
+                                <li><i class="fas fa-check"></i>Vaccination Records</li>
+                                <li><i class="fas fa-check"></i>Insurance Documents</li>
+                                <li><i class="fas fa-check"></i>Clinical Certificates</li>
+                            </ul>
+                            <a href="verify-medical.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="technology">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-microchip"></i>
+                            <h3>Technology & Cybersecurity</h3>
+                            <p>Verify tech certifications and security credentials</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Ethical Hacking Certs</li>
+                                <li><i class="fas fa-check"></i>Cloud Computing</li>
+                                <li><i class="fas fa-check"></i>Blockchain Dev</li>
+                                <li><i class="fas fa-check"></i>Security Clearances</li>
+                            </ul>
+                            <a href="verify-tech.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="transport">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-car"></i>
+                            <h3>Transportation & Mobility</h3>
+                            <p>Validate transport and mobility credentials</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Vehicle Registration</li>
+                                <li><i class="fas fa-check"></i>Pilot Licenses</li>
+                                <li><i class="fas fa-check"></i>Fleet Certification</li>
+                                <li><i class="fas fa-check"></i>Transport Permits</li>
+                            </ul>
+                            <a href="verify-transport.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="trade">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-industry"></i>
+                            <h3>Industry & Trade</h3>
+                            <p>Verify industrial and trade certifications</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Real Estate Certs</li>
+                                <li><i class="fas fa-check"></i>Construction Licenses</li>
+                                <li><i class="fas fa-check"></i>Trade Permits</li>
+                                <li><i class="fas fa-check"></i>Safety Compliance</li>
+                            </ul>
+                            <a href="verify-trade.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="media">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-film"></i>
+                            <h3>Media & Entertainment</h3>
+                            <p>Validate media and entertainment credentials</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>Press Credentials</li>
+                                <li><i class="fas fa-check"></i>Performance Rights</li>
+                                <li><i class="fas fa-check"></i>Media Licenses</li>
+                                <li><i class="fas fa-check"></i>Artist Certifications</li>
+                            </ul>
+                            <a href="verify-media.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-card" data-category="humanitarian">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <i class="fas fa-hands-helping"></i>
+                            <h3>Humanitarian & Non-Profit</h3>
+                            <p>Verify humanitarian and NGO credentials</p>
+                        </div>
+                        <div class="card-back">
+                            <ul class="subtype-list">
+                                <li><i class="fas fa-check"></i>NGO Registration</li>
+                                <li><i class="fas fa-check"></i>Volunteer Certs</li>
+                                <li><i class="fas fa-check"></i>Relief Work Docs</li>
+                                <li><i class="fas fa-check"></i>Aid Worker ID</li>
+                            </ul>
+                            <a href="verify-humanitarian.html" class="verify-btn">Verify Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+            .credential-categories {
+                padding: 2rem;
+                background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+            }
+
+            .category-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .category-card {
+                perspective: 1000px;
+                height: 320px;
+            }
+
+            .card-inner {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.8s;
+                transform-style: preserve-3d;
+                cursor: pointer;
+            }
+
+            .category-card:hover .card-inner {
+                transform: rotateY(180deg);
+            }
+
+            .card-front, .card-back {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+                border-radius: 15px;
+                padding: 2rem;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .card-front {
+                text-align: center;
+            }
+
+            .card-back {
+                transform: rotateY(180deg);
+                background: rgba(255, 255, 255, 0.15);
+            }
+
+            .card-front i {
+                font-size: 3rem;
+                color: #4a90e2;
+                margin-bottom: 1rem;
+                filter: drop-shadow(0 0 8px rgba(74, 144, 226, 0.3));
+            }
+
+            .card-front h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+                color: #2c3e50;
+            }
+
+            .card-front p {
+                font-size: 0.9rem;
+                color: #666;
+                line-height: 1.4;
+            }
+
+            .subtype-list {
+                list-style: none;
+                padding: 0;
+                margin: 0 0 1.5rem 0;
+                width: 100%;
+            }
+
+            .subtype-list li {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.8rem;
+                color: #2c3e50;
+                font-size: 0.9rem;
+            }
+
+            .subtype-list i {
+                color: #4a90e2;
+                font-size: 0.8rem;
+            }
+
+            .verify-btn {
+                padding: 0.8rem 1.5rem;
+                background: #4a90e2;
+                color: white;
+                border: none;
+                border-radius: 25px;
+                text-decoration: none;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            }
+
+            .verify-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+            }
+
+            @media (max-width: 768px) {
+                .credential-categories {
+                    padding: 1rem;
+                }
+
+                .category-grid {
+                    gap: 1rem;
+                }
+
+                .category-card {
+                    height: 280px;
+                }
+
+                .card-front h3 {
+                    font-size: 1.2rem;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const cards = document.querySelectorAll('.category-card');
+                
+                // Add touch support for mobile devices
+                cards.forEach(card => {
+                    let touchStartX = 0;
+                    let touchEndX = 0;
+                    
+                    card.addEventListener('touchstart', e => {
+                        touchStartX = e.changedTouches[0].screenX;
+                    });
+                    
+                    card.addEventListener('touchend', e => {
+                        touchEndX = e.changedTouches[0].screenX;
+                        handleSwipe(card, touchStartX, touchEndX);
+                    });
+                    
+                    // Add hover animation
+                    card.addEventListener('mouseenter', () => {
+                        card.style.transform = 'translateY(-5px)';
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'translateY(0)';
+                    });
+                });
+                
+                function handleSwipe(card, start, end) {
+                    const threshold = 50;
+                    const diff = start - end;
+                    
+                    if (Math.abs(diff) > threshold) {
+                        const cardInner = card.querySelector('.card-inner');
+                        cardInner.style.transform = diff > 0 ? 'rotateY(180deg)' : 'rotateY(0)';
+                    }
+                }
+            });
+        </script>
+
+    </main>
+
+    <!-- Add CSS and JS files -->
+    <link rel="stylesheet" href="verify-styles.css">
+    <script src="verify-scripts.js"></script>
+    // End of Selection
+
+    <script src="verify.js"></script>
+</body>
+</html>

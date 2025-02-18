@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/apexcharts@3.35.3/dist/apexcharts.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tippy.js@6.3.7/dist/tippy.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="verify.html">Verify Credentials</a></li>
+                    <li><a href="my-credentials.html">My Credentials</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-btn">
+                        <img src="https://api.dicebear.com/6.x/initials/svg?seed=CS" alt="Profile" class="profile-img">
+                        <span>Sumaiyah</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+    
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-header">
+                    <h1>Welcome back, Sumaiyah!</h1>
+                    <p>Here's what's happening with your credentials</p>
+                </div>
+                <div class="quick-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon verified">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Verified Credentials</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>Pending Verification</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon rejected">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>1</h3>
+                            <p>Rejected Documents</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <button class="btn btn-secondary">View All</button>
+                </div>
+                <div class="activity-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-icon verified">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Bachelor's Degree Verified</h4>
+                            <p>Stanford University • Computer Science</p>
+                            <span class="timestamp">2 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Professional Certification Uploaded</h4>
+                            <p>AWS Solutions Architect</p>
+                            <span class="timestamp">5 hours ago</span>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-icon rejected">
+                            <i class="fas fa-times"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h4>Document Verification Failed</h4>
+                            <p>Please check document quality and try again</p>
+                            <span class="timestamp">1 day ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <div class="section-header">
+                    <h2>Quick Actions</h2>
+                </div>
+                <div class="action-cards">
+                    <div class="action-card">
+                        <i class="fas fa-upload"></i>
+                        <h3>Upload New Credential</h3>
+                        <p>Verify a new academic or professional document</p>
+                        <button class="btn btn-primary">Upload Now</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Share Credentials</h3>
+                        <p>Generate shareable links for verified credentials</p>
+                        <button class="btn btn-secondary">Share</button>
+                    </div>
+                    <div class="action-card">
+                        <i class="fas fa-download"></i>
+                        <h3>Download Report</h3>
+                        <p>Get a detailed report of all your verifications</p>
+                        <button class="btn btn-secondary">Download</button>
+                    </div>
+                </div>
+            </section>
+
+
+
+
+            
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="darkMode.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

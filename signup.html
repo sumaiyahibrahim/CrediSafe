@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="signup.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html" class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </a>
+            </div>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="signup-container">
+            <div class="role-selector">
+                <h2>Choose Account Type</h2>
+                <div class="role-options">
+                    <button class="role-btn active" data-role="individual">
+                        <i class="fas fa-user"></i>
+                        <span>Individual</span>
+                    </button>
+                    <button class="role-btn" data-role="organization">
+                        <i class="fas fa-building"></i>
+                        <span>Organization</span>
+                    </button>
+                </div>
+            </div>
+            
+            <form id="signupForm" class="signup-form individual-form">
+                <div class="progress-bar">
+                    <div class="progress-step active" data-step="1">
+                        <i class="fas fa-user"></i>
+                        <span>Personal Info</span>
+                    </div>
+                    <div class="progress-step" data-step="2">
+                        <i class="fas fa-id-card"></i>
+                        <span>Contact & Identity</span>
+                    </div>
+                    <div class="progress-step" data-step="3">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </div>
+                    <div class="progress-step" data-step="4">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Finish</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" data-step="1">
+                    <!-- Individual Form Fields -->
+                    <div class="individual-fields">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <div class="input-group">
+                                <input type="text" placeholder="First Name" required>
+                                <input type="text" placeholder="Middle Name">
+                                <input type="text" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender</label>
+                            <select required>
+                                <option value="">Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="non-binary">Non-Binary</option>
+                                <option value="prefer-not-say">Prefer Not to Say</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Nationality</label>
+                            <select id="nationality" required>
+                                <option value="">Select Nationality</option>
+                                <!-- Will be populated via JavaScript -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Preferred Language</label>
+                            <select id="language" required>
+                                <option value="">Select Language</option>
+                                <!-- Will be populated via JavaScript -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Organization Form Fields -->
+                    <div class="organization-fields" style="display: none;">
+                        <div class="form-group">
+                            <label>Organization Name</label>
+                            <input type="text" placeholder="Enter organization name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Business Type</label>
+                            <select required>
+                                <option value="">Select Business Type</option>
+                                <option value="education">Education</option>
+                                <option value="healthcare">Healthcare</option>
+                                <option value="finance">Finance</option>
+                                <option value="tech">Technology</option>
+                                <option value="government">Government</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Business Registration Number</label>
+                            <input type="text" placeholder="Enter registration number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Company Website</label>
+                            <input type="url" placeholder="https://example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Contact & Identity -->
+                <div class="form-step" data-step="2">
+                    <!-- Individual Form Fields -->
+                    <div class="individual-fields">
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <div class="input-group">
+                                <input type="email" placeholder="Enter your email" required>
+                                <button type="button" class="btn btn-secondary verify-btn">Verify Email</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number</label>
+                            <div class="input-group">
+                                <input type="tel" placeholder="Enter phone number" required>
+                                <button type="button" class="btn btn-secondary verify-btn">Send OTP</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Residential Address</label>
+                            <input type="text" placeholder="Street Address" required>
+                            <div class="input-group">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="State/Province" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Postal Code" required>
+                                <select id="country" required>
+                                    <option value="">Select Country</option>
+                                    <!-- Will be populated via JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Government ID</label>
+                            <select id="idType" required>
+                                <option value="">Select ID Type</option>
+                                <option value="passport">Passport</option>
+                                <option value="national_id">National ID</option>
+                                <option value="drivers_license">Driver's License</option>
+                            </select>
+                            <div class="file-upload">
+                                <input type="file" id="govId" accept="image/*,.pdf" required>
+                                <label for="govId" class="file-upload-label">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <span>Drop your ID here or click to upload</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Selfie Verification</label>
+                            <div class="file-upload">
+                                <input type="file" id="selfie" accept="image/*" required>
+                                <label for="selfie" class="file-upload-label">
+                                    <i class="fas fa-camera"></i>
+                                    <span>Take a selfie or upload photo</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>National ID Number (Optional)</label>
+                            <input type="text" placeholder="Enter ID number" class="encrypted-field">
+                            <small class="help-text">This will be encrypted for security</small>
+                        </div>
+                    </div>
+
+                    <!-- Organization Form Fields -->
+                    <div class="organization-fields" style="display: none;">
+                        <div class="form-group">
+                            <label>Business Email</label>
+                            <div class="input-group">
+                                <input type="email" placeholder="Enter business email" required>
+                                <button type="button" class="btn btn-secondary verify-btn">Verify Email</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Business Phone</label>
+                            <div class="input-group">
+                                <input type="tel" placeholder="Enter business phone" required>
+                                <button type="button" class="btn btn-secondary verify-btn">Send OTP</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Office Address</label>
+                            <input type="text" placeholder="Street Address" required>
+                            <div class="input-group">
+                                <input type="text" placeholder="City" required>
+                                <input type="text" placeholder="State/Province" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="Postal Code" required>
+                                <select id="businessCountry" required>
+                                    <option value="">Select Country</option>
+                                    <!-- Will be populated via JavaScript -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Admin Information</label>
+                            <input type="text" placeholder="Admin Full Name" required>
+                            <input type="text" placeholder="Position in Company" required>
+                            <input type="url" placeholder="LinkedIn Profile (Optional)">
+                        </div>
+                        <div class="form-group">
+                            <label>Business Documents</label>
+                            <div class="file-upload">
+                                <input type="file" id="businessReg" accept=".pdf,.jpg,.png" required>
+                                <label for="businessReg" class="file-upload-label">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span>Upload Business Registration Certificate</span>
+                                </label>
+                            </div>
+                            <div class="file-upload">
+                                <input type="file" id="taxDoc" accept=".pdf,.jpg,.png" required>
+                                <label for="taxDoc" class="file-upload-label">
+                                    <i class="fas fa-file-invoice"></i>
+                                    <span>Upload Tax ID Document</span>
+                                </label>
+                            </div>
+                            <div class="file-upload">
+                                <input type="file" id="companyAuth" accept=".pdf,.jpg,.png">
+                                <label for="companyAuth" class="file-upload-label">
+                                    <i class="fas fa-stamp"></i>
+                                    <span>Upload Company Seal/Authorization Letter</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary prev-step">Back</button>
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Security -->
+                <div class="form-step" data-step="3">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <div class="password-input">
+                            <input type="password" placeholder="Create a strong password" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength">
+                            <div class="strength-bar"></div>
+                            <span class="strength-text">Password strength: Weak</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Confirm Password</label>
+                        <div class="password-input">
+                            <input type="password" placeholder="Confirm your password" required>
+                            <button type="button" class="toggle-password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Two-Factor Authentication (2FA)</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="2fa" value="email" checked>
+                                <span>Email OTP</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="2fa" value="phone">
+                                <span>Phone OTP</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="2fa" value="authenticator">
+                                <span>Authenticator App</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div id="authenticatorSetup" style="display: none;">
+                        <div class="qr-code">
+                            <!-- QR Code will be generated here -->
+                        </div>
+                        <input type="text" placeholder="Enter 6-digit code to verify" class="verification-code">
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                        </label>
+                    </div>
+                    <div class="form-group organization-fields" style="display: none;">
+                        <label class="checkbox-label">
+                            <input type="checkbox" required>
+                            <span>I certify that I am an authorized representative of this organization</span>
+                        </label>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary prev-step">Back</button>
+                        <button type="button" class="btn btn-primary next-step">Continue</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Final Step -->
+                <div class="form-step" data-step="4">
+                    <div class="subscription-plan organization-fields" style="display: none;">
+                        <h3>Select Your Plan</h3>
+                        <div class="plan-options">
+                            <div class="plan-card">
+                                <h4>Free</h4>
+                                <ul>
+                                    <li>Basic credential verification</li>
+                                    <li>Up to 50 verifications/month</li>
+                                    <li>Email support</li>
+                                </ul>
+                                <button type="button" class="btn btn-secondary select-plan" data-plan="free">Select Free</button>
+                            </div>
+                            <div class="plan-card">
+                                <h4>Enterprise</h4>
+                                <ul>
+                                    <li>Unlimited verifications</li>
+                                    <li>API access</li>
+                                    <li>24/7 priority support</li>
+                                </ul>
+                                <button type="button" class="btn btn-primary select-plan" data-plan="enterprise">Select Enterprise</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="web3-connect">
+                        <h3>Connect Blockchain Wallet (Optional)</h3>
+                        <div class="wallet-options">
+                            <button type="button" class="wallet-btn metamask">
+                                <img src="https://raw.githubusercontent.com/MetaMask/brand-resources/master/SVG/metamask-fox.svg" alt="MetaMask">
+                                <span>Connect MetaMask</span>
+                            </button>
+                            <button type="button" class="wallet-btn walletconnect">
+                                <img src="https://raw.githubusercontent.com/WalletConnect/walletconnect-assets/master/Logo/Blue%20(Default)/Logo.svg" alt="WalletConnect">
+                                <span>WalletConnect</span>
+                            </button>
+                            <button type="button" class="wallet-btn coinbase">
+                                <img src="https://www.coinbase.com/assets/press/coinbase-mark-0c54abc3d2c86991e7dc4941c96f7e337be68c229bca0f8f0f615a4f4da8c638.svg" alt="Coinbase">
+                                <span>Coinbase Wallet</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary prev-step">Back</button>
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="social-signup">
+                <div class="divider">
+                    <span>Or sign up with</span>
+                </div>
+                <div class="social-buttons">
+                    <button class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </button>
+                    <button class="social-btn github">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </button>
+                    <button class="social-btn linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="signup.js"></script>
+</body>
+</html>

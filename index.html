@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Credentials - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="verify.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="how-it-works.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="verify.html">Verify Credentials</a></li>
+                    <li><a href="my-credentials.html">My Credentials</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-btn">
+                        <img src="https://api.dicebear.com/6.x/initials/svg?seed=CS" alt="Profile" class="profile-img">
+                        <span>Sumaiyah</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Secure Credential Verification for the Digital Age</h1>
+                <p>Verify and manage your credentials with blockchain-powered security and AI-driven authentication</p>
+                <div class="hero-buttons">
+                    <a href="verify.html" class="btn btn-primary">Verify Now</a>
+                    <a href="signup.html" class="btn btn-secondary">Get Started</a>
+                </div>
+            </div>
+            <div class="hero-background"></div>
+        </section>
+
+
+        
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="section-header" data-aos="fade-up">
+                <h2>How It Works?</h2>
+                <p>Secure verification in 4 simple steps</p>
+            </div>
+
+            <div class="verification-steps">
+                <div class="steps-row">
+                    <!-- Step 1: Upload -->
+                    <div class="step-card" data-step="1">
+                        <div class="card-inner">
+                            <div class="step-header">
+                                <i class="fas fa-upload"></i>
+                                <h3>Upload Credential</h3>
+                            </div>
+                            <div class="step-details">
+                                <div class="upload-animation">
+                                    <div class="upload-progress"></div>
+                                </div>
+                                <p class="step-description">
+                                    Securely upload your documents with our advanced encryption system
+                                </p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> Multi-format support</li>
+                                    <li><i class="fas fa-check"></i> Instant validation</li>
+                                    <li><i class="fas fa-check"></i> End-to-end encryption</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: AI Analysis -->
+                    <div class="step-card" data-step="2">
+                        <div class="card-inner">
+                            <div class="step-header">
+                                <i class="fas fa-brain"></i>
+                                <h3>Smart Scan</h3>
+                            </div>
+                            <div class="step-details">
+                                <div class="scan-animation">
+                                    <div class="scan-line"></div>
+                                    <div class="scan-grid"></div>
+                                </div>
+                                <p class="step-description">
+                                    Advanced AI analysis verifies document authenticity
+                                </p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> ML verification</li>
+                                    <li><i class="fas fa-check"></i> Pattern recognition</li>
+                                    <li><i class="fas fa-check"></i> Fraud detection</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Blockchain -->
+                    <div class="step-card" data-step="3">
+                        <div class="card-inner">
+                            <div class="step-header">
+                                <i class="fas fa-link"></i>
+                                <h3>Blockchain Secure</h3>
+                            </div>
+                            <div class="step-details">
+                                <div class="blockchain-animation">
+                                    <div class="nodes"></div>
+                                    <div class="connections"></div>
+                                </div>
+                                <p class="step-description">
+                                    Immutable blockchain storage ensures permanent security
+                                </p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> Smart contracts</li>
+                                    <li><i class="fas fa-check"></i> Decentralized storage</li>
+                                    <li><i class="fas fa-check"></i> Tamper-proof record</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Complete -->
+                    <div class="step-card" data-step="4">
+                        <div class="card-inner">
+                            <div class="step-header">
+                                <i class="fas fa-check-circle"></i>
+                                <h3>Verification Complete</h3>
+                            </div>
+                            <div class="step-details">
+                                <div class="complete-animation">
+                                    <div class="checkmark"></div>
+                                </div>
+                                <p class="step-description">
+                                    Get instant access to your verified credentials
+                                </p>
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check"></i> Digital certificate</li>
+                                    <li><i class="fas fa-check"></i> Shareable link</li>
+                                    <li><i class="fas fa-check"></i> Verification badge</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .how-it-works {
+                    position: relative;
+                    padding: 80px 0;
+                    background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%);
+                    min-height: 100vh;
+                    overflow: hidden;
+                }
+
+                .section-header {
+                    text-align: center;
+                    margin-bottom: 60px;
+                }
+
+                .section-header h2 {
+                    font-size: 2.8rem;
+                    background: linear-gradient(135deg, #2d5b8e 0%, #4a90e2 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    margin-bottom: 15px;
+                }
+
+                .steps-row {
+                    display: flex;
+                    justify-content: center;
+                    gap: 30px;
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    padding: 20px;
+                    position: relative;
+                }
+
+                .step-card {
+                    flex: 1;
+                    max-width: 320px;
+                    min-height: 200px;
+                    perspective: 1000px;
+                    cursor: pointer;
+                }
+
+                .card-inner {
+                    position: relative;
+                    background: rgba(255, 255, 255, 0.85);
+                    backdrop-filter: blur(10px);
+                    border-radius: 20px;
+                    padding: 25px;
+                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+                    overflow: hidden;
+                }
+
+                .step-card:hover .card-inner {
+                    transform: translateY(-15px);
+                    border-color: #4a90e2;
+                    box-shadow: 0 15px 45px rgba(74, 144, 226, 0.2),
+                                0 0 15px rgba(74, 144, 226, 0.1);
+                }
+
+                .step-header {
+                    display: flex;
+                    align-items: center;
+                    gap: 15px;
+                    margin-bottom: 20px;
+                }
+
+                .step-header i {
+                    font-size: 24px;
+                    color: #4a90e2;
+                }
+
+                .step-header h3 {
+                    font-size: 1.2rem;
+                    color: #2d5b8e;
+                    margin: 0;
+                }
+
+                .step-details {
+                    height: 0;
+                    opacity: 0;
+                    transition: all 0.4s ease;
+                }
+
+                .step-card:hover .step-details {
+                    height: auto;
+                    opacity: 1;
+                    margin-top: 20px;
+                }
+
+                .feature-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 15px 0 0;
+                }
+
+                .feature-list li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    color: #5c8ab9;
+                    margin-bottom: 8px;
+                    font-size: 0.9rem;
+                }
+
+                .feature-list i {
+                    color: #4a90e2;
+                    font-size: 0.8rem;
+                }
+
+                @media (max-width: 1024px) {
+                    .steps-row {
+                        flex-wrap: wrap;
+                    }
+                    
+                    .step-card {
+                        flex: 1 1 calc(50% - 30px);
+                        max-width: none;
+                    }
+                }
+
+                @media (max-width: 768px) {
+                    .step-card {
+                        flex: 1 1 100%;
+                    }
+                    
+                    .step-details {
+                        height: auto;
+                        opacity: 1;
+                        margin-top: 20px;
+                    }
+                }
+            </style>
+        </section>
+
+
+        
+<!-- Testimonials Section -->
+<section class="testimonials">
+    <div class="container">
+        <h2 class="section-title">What Our Users Say</h2>
+        
+        <div class="testimonial-carousel">
+            <div class="testimonial-track">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-photo">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=John" alt="Sumaiyah's photo">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        <p>"CrediSafe helped us verify 5,000+ credentials seamlessly. Trustworthy, fast, and secure!"</p>
+                        <footer>
+                            <cite class="author">Sumaiyah</cite>
+                            <span class="position">CTO at SecureTech</span>
+                        </footer>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-photo">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Parkavi" alt="Parkavi's photo">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        <p>"The verification process is quick and reliable. Highly recommend!"</p>
+                        <footer>
+                            <cite class="author">Parkavi</cite>
+                            <span class="position">Project Manager at FinTech Innovations</span>
+                        </footer>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-photo">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Pooja" alt="Pooja's photo">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        <p>"CrediSafe is a game-changer for credential management. It saves us so much time!"</p>
+                        <footer>
+                            <cite class="author">Pooja</cite>
+                            <span class="position">Director of Operations at EduCert</span>
+                        </footer>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-photo">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Jaden" alt="Jaden's photo">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        <p>"Implementing CrediSafe has revolutionized how we handle employee certifications. Outstanding service!"</p>
+                        <footer>
+                            <cite class="author">Jaden</cite>
+                            <span class="position">HR Director at TechGlobal</span>
+                        </footer>
+                    </blockquote>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-photo">
+                            <img src="https://api.dicebear.com/6.x/avataaars/svg?seed=Robert" alt="Robert's photo">
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <blockquote class="testimonial-content">
+                        <p>"The blockchain integration gives us complete confidence in our verification process. Simply brilliant!"</p>
+                        <footer>
+                            <cite class="author">Robert</cite>
+                            <span class="position">CEO at BlockChain Solutions</span>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <div class="trusted-by">
+            <h3>Trusted By Industry Leaders</h3>
+            <div class="partner-logos">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg" alt="IBM logo" class="partner-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft logo" class="partner-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google logo" class="partner-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo" class="partner-logo">
+            </div>
+        </div>
+
+        <button class="share-button">
+            <i class="fas fa-comment-dots"></i>
+            Share Your CrediSafe Story
+        </button>
+    </div>
+
+    <style>
+        .testimonials {
+            padding: 80px 0;
+            background: #f8fbff; /* Even lighter blue background */
+            color: var(--on-surface);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--on-surface);
+            margin-bottom: 50px;
+            font-weight: 700;
+        }
+
+        .testimonial-carousel {
+            position: relative;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll 30s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .testimonial-track:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonial-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid #4a90e2; /* Blue outline */
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: #4a90e2; /* Keep blue on hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid #4a90e2; /* Blue border */
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover .testimonial-photo {
+            transform: scale(1.1);
+        }
+
+        .testimonial-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rating {
+            color: #4a90e2; /* Blue stars */
+        }
+
+        .testimonial-content {
+            margin: 0;
+            color: var(--on-surface);
+        }
+
+        .testimonial-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .author {
+            font-weight: 600;
+            color: var(--on-surface-variant);
+            font-style: normal;
+        }
+
+        .position {
+            color: var(--on-surface-variant);
+            font-size: 0.9rem;
+        }
+
+        .trusted-by {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .partner-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .partner-logo {
+            height: 40px;
+            opacity: 0.6;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+        }
+
+        .partner-logo:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+            transform: scale(1.1);
+        }
+
+        .share-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 60px auto 0;
+            padding: 15px 30px;
+            background: var(--primary);
+            color: var(--on-primary);
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .share-button:hover {
+            transform: translateY(-2px);
+            background: var(--primary-container);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .testimonial-card {
+                flex: 0 0 calc(100% - 20px);
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</section>
+
+<!-- Why Choose CrediSafe Section -->
+<section class="why-credisafe">
+        <!-- Why Choose CrediSafe Section -->
+        <section class="why-credisafe">
+            <div class="parallax-background">
+                <div class="floating-nodes"></div>
+                <div class="security-grid"></div>
+            </div>
+
+            <div class="section-header">
+                <h2>Why Choose CrediSafe?</h2>
+                <p>Next-Generation Credential Verification Platform</p>
+            </div>
+
+            <div class="specialty-cards">
+                <!-- AI-Powered Fraud Detection -->
+                <div class="specialty-card" data-specialty="ai">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-eye"></i>
+                            <div class="scan-effect"></div>
+                        </div>
+                    </div>
+                    <h3>AI-Powered Fraud Detection</h3>
+                    <p>Stop fake credentials before they spread</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Blockchain Security -->
+                <div class="specialty-card" data-specialty="blockchain">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-link"></i>
+                            <div class="network-effect"></div>
+                        </div>
+                    </div>
+                    <h3>Blockchain-Backed Security</h3>
+                    <p>Tamper-proof verification stored forever</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Instant Verification -->
+                <div class="specialty-card" data-specialty="instant">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-bolt"></i>
+                            <div class="connect-effect"></div>
+                        </div>
+                    </div>
+                    <h3>Instant, Multi-Method Verification</h3>
+                    <p>Verify via ID, QR code, wallet, or upload</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Privacy -->
+                <div class="specialty-card" data-specialty="privacy">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="ripple-effect"></div>
+                        </div>
+                    </div>
+                    <h3>Privacy-First & End-to-End Encryption</h3>
+                    <p>Your data, secured with next-gen protection</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Global Compliance -->
+                <div class="specialty-card" data-specialty="compliance">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-globe"></i>
+                            <div class="rotate-effect"></div>
+                        </div>
+                    </div>
+                    <h3>Globally Trusted & Compliant</h3>
+                    <p>Meets GDPR, ISO 27001, and top security standards</p>
+                    <div class="card-glow"></div>
+                </div>
+
+                <!-- Web3 Ready -->
+                <div class="specialty-card" data-specialty="web3">
+                    <div class="card-icon">
+                        <div class="icon-container">
+                            <i class="fas fa-wallet"></i>
+                            <div class="pulse-effect"></div>
+                        </div>
+                    </div>
+                    <h3>Web3 & Digital Identity Ready</h3>
+                    <p>Verify, store, and share with Web3 wallets</p>
+                    <div class="card-glow"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+<!-- game section-->
+<section class="game-section">
+    <div class="container">
+        <div class="game-header">
+            <h1>Interactive Blockchain Demo</h1>
+            <p class="subtitle">Experience how blockchain works through this interactive learning game</p>
+        </div>
+
+        <!-- Step 1: Enter Data -->
+        <div id="step1" class="game-step active">
+            <div class="step-header">
+                <span class="step-number">01</span>
+                <h2>Enter Transaction Data</h2>
+            </div>
+            <div class="step-content">
+                <div class="input-group">
+                    <i class="fas fa-keyboard input-icon"></i>
+                    <input type="text" id="dataInput" placeholder="Enter transaction details...">
+                </div>
+                <button onclick="generateHash()" class="primary-btn">
+                    <i class="fas fa-fingerprint"></i>
+                    Generate Hash
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Generate Hash -->
+        <div id="step2" class="game-step" style="display: none;">
+            <div class="step-header">
+                <span class="step-number">02</span>
+                <h2>Block Hash Generated</h2>
+            </div>
+            <div class="step-content">
+                <div class="hash-display">
+                    <i class="fas fa-lock"></i>
+                    <p><strong>Block Hash:</strong> <span id="blockHash"></span></p>
+                </div>
+                <button onclick="connectBlock()" class="primary-btn">
+                    <i class="fas fa-link"></i>
+                    Connect Block
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Connect Blocks -->
+        <div id="step3" class="game-step" style="display: none;">
+            <div class="step-header">
+                <span class="step-number">03</span>
+                <h2>Blockchain Connection</h2>
+            </div>
+            <div class="step-content">
+                <div class="block-container">
+                    <div class="block" id="block1">
+                        <div class="block-header">Block 1</div>
+                        <p id="block1Data"></p>
+                        <div class="block-hash">
+                            <span>Hash:</span>
+                            <code id="block1Hash"></code>
+                        </div>
+                    </div>
+                    <div class="connection-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="block" id="block2">
+                        <div class="block-header">Block 2</div>
+                        <div class="prev-hash">
+                            <span>Previous Hash:</span>
+                            <code id="prevHash"></code>
+                        </div>
+                        <div class="block-hash">
+                            <span>New Hash:</span>
+                            <code id="block2Hash"></code>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="tamperingDemo()" class="warning-btn">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Test Security
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: Tampering Demo -->
+        <div id="step4" class="game-step" style="display: none;">
+            <div class="step-header">
+                <span class="step-number">04</span>
+                <h2>Security Testing</h2>
+            </div>
+            <div class="step-content">
+                <p class="info-text">Try modifying Block 1 to see how it affects the chain</p>
+                <div class="input-group">
+                    <i class="fas fa-edit input-icon"></i>
+                    <input type="text" id="tamperInput" placeholder="Modify Block 1 data...">
+                </div>
+                <button onclick="tamperBlock()" class="danger-btn">
+                    <i class="fas fa-hammer"></i>
+                    Attempt Tampering
+                </button>
+                <p id="tamperMessage" class="message"></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .game-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8faff, #e8f0ff);
+        }
+
+        .game-section .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .game-header h1 {
+            font-size: 2.5rem;
+            color: #1a237e;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #5c6bc0;
+            font-size: 1.2rem;
+        }
+
+        .game-step {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .step-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #3f51b5;
+            background: rgba(63, 81, 181, 0.1);
+            padding: 8px 16px;
+            border-radius: 12px;
+            margin-right: 15px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #3f51b5;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px 45px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #3f51b5;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(63, 81, 181, 0.1);
+        }
+
+        .block-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .block {
+            width: 250px;
+            padding: 20px;
+            background: linear-gradient(135deg, #5c6bc0, #3f51b5);
+            border-radius: 16px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(63, 81, 181, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(63, 81, 181, 0.3);
+        }
+
+        .block-header {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .connection-arrow {
+            color: #3f51b5;
+            font-size: 1.5rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        .primary-btn, .warning-btn, .danger-btn {
+            padding: 12px 25px;
+            border-radius: 12px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .primary-btn {
+            background: #3f51b5;
+            color: white;
+        }
+
+        .warning-btn {
+            background: #ffd700;
+            color: #333;
+        }
+
+        .danger-btn {
+            background: #ff4444;
+            color: white;
+        }
+
+        .primary-btn:hover, .warning-btn:hover, .danger-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.5; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.05); }
+            100% { opacity: 0.5; transform: scale(0.95); }
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background: rgba(63, 81, 181, 0.1);
+            color: #3f51b5;
+        }
+    </style>
+
+    <script>
+        let originalData = '';
+        let originalHash = '';
+
+        function generateHash() {
+            let data = document.getElementById("dataInput").value;
+            if (!data) {
+                alert("Please enter data first.");
+                return;
+            }
+            originalData = data;
+            originalHash = btoa(data).slice(0, 20);
+            document.getElementById("blockHash").innerText = originalHash;
+            document.getElementById("step1").style.display = "none";
+            document.getElementById("step2").style.display = "block";
+        }
+
+        function connectBlock() {
+            let hash = document.getElementById("blockHash").innerText;
+            document.getElementById("block1Data").innerText = originalData;
+            document.getElementById("block1Hash").innerText = hash;
+            document.getElementById("prevHash").innerText = hash;
+            document.getElementById("block2Hash").innerText = btoa(hash + "next").slice(0, 20);
+            
+            document.getElementById("step2").style.display = "none";
+            document.getElementById("step3").style.display = "block";
+        }
+
+        function tamperingDemo() {
+            document.getElementById("step3").style.display = "none";
+            document.getElementById("step4").style.display = "block";
+            document.getElementById("tamperInput").value = originalData;
+        }
+
+        function tamperBlock() {
+            let newData = document.getElementById("tamperInput").value;
+            let newHash = btoa(newData).slice(0, 20);
+            
+            document.getElementById("block1Data").innerText = newData;
+            document.getElementById("block1Hash").innerText = newHash;
+            
+            let message = document.getElementById("tamperMessage");
+            if (newHash !== originalHash) {
+                message.style.background = "rgba(255, 0, 0, 0.1)";
+                message.style.color = "#ff0000";
+                message.innerText = "⚠️ Blockchain Integrity Compromised! The hash values no longer match.";
+                
+                // Visual feedback
+                document.getElementById("block1").style.background = "linear-gradient(135deg, #ff4444, #cc0000)";
+                document.getElementById("block2").style.opacity = "0.5";
+                document.querySelector(".connection-arrow").style.color = "#ff4444";
+            } else {
+                message.style.background = "rgba(0, 255, 0, 0.1)";
+                message.style.color = "#00aa00";
+                message.innerText = "✅ Blockchain Integrity Maintained - No tampering detected";
+                
+                // Reset visual feedback
+                document.getElementById("block1").style.background = "linear-gradient(135deg, #5c6bc0, #3f51b5)";
+                document.getElementById("block2").style.opacity = "1";
+                document.querySelector(".connection-arrow").style.color = "#3f51b5";
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+        <div class="footer-content container">
+            <div class="footer-sections-wrapper">
+                <div class="footer-section">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="/about"><i class="fas fa-building text-primary"></i> About Us</a></li>
+                        <li><a href="/careers"><i class="fas fa-briefcase text-primary"></i> Careers</a></li>
+                        <li><a href="/blog"><i class="fas fa-newspaper text-primary"></i> Blog</a></li>
+                        <li><a href="/press"><i class="fas fa-bullhorn text-primary"></i> Press</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Verification</h4>
+                    <ul class="footer-links">
+                        <li><a href="/verify"><i class="fas fa-check-circle text-primary"></i> Verify Credential</a></li>
+                        <li><a href="/blockchain"><i class="fas fa-link text-primary"></i> Blockchain Auth</a></li>
+                        <li><a href="/enterprise"><i class="fas fa-building text-primary"></i> Enterprise</a></li>
+                        <li><a href="/pricing"><i class="fas fa-tag text-primary"></i> Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Developers</h4>
+                    <ul class="footer-links">
+                        <li><a href="/docs"><i class="fas fa-code text-primary"></i> API Docs</a></li>
+                        <li><a href="/sdks"><i class="fas fa-cube text-primary"></i> SDKs</a></li>
+                        <li><a href="/webhooks"><i class="fas fa-plug text-primary"></i> Webhooks</a></li>
+                        <li><a href="/status"><i class="fas fa-signal text-primary"></i> Status</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul class="footer-links">
+                        <li><a href="/privacy"><i class="fas fa-shield-alt text-primary"></i> Privacy</a></li>
+                        <li><a href="/terms"><i class="fas fa-file-contract text-primary"></i> Terms</a></li>
+                        <li><a href="/security"><i class="fas fa-lock text-primary"></i> Security</a></li>
+                        <li><a href="/contact"><i class="fas fa-headset text-primary"></i> Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-social">
+                <div class="social-icons">
+                    <a href="https://github.com/credisafe" class="social-icon github">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/credisafe" class="social-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://discord.gg/credisafe" class="social-icon discord">
+                        <i class="fab fa-discord"></i>
+                    </a>
+                    <a href="https://linkedin.com/company/credisafe" class="social-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-content">
+                <div class="footer-logo">
+                    <svg class="logo" width="30" height="30" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <p class="copyright">&copy; 2023 CrediSafe. All rights reserved.</p>
+                <div class="security-badges">
+                    <img src="assets/iso-badge.svg" alt="ISO 27001 Certified">
+                    <img src="assets/gdpr-badge.svg" alt="GDPR Compliant">
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .site-footer {
+                font-family: 'Space Grotesk', sans-serif;
+                background: var(--surface-container);
+                color: var(--on-surface);
+                padding: 40px 0 20px;
+            }
+
+            .footer-content {
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .footer-sections-wrapper {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 30px;
+            }
+
+            .footer-section {
+                min-width: 200px;
+            }
+
+            .footer-heading {
+                font-size: 1.1rem;
+                font-weight: 600;
+                margin-bottom: 15px;
+                color: var(--primary);
+            }
+
+            .footer-links {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                text-decoration: none;
+                color: var(--on-surface-variant);
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                transition: color 0.3s ease;
+            }
+
+            .footer-links a:hover {
+                color: var(--primary);
+            }
+
+            .text-primary {
+                color: var(--primary);
+            }
+
+            .social-icons {
+                display: flex;
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .social-icon {
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: all 0.3s ease;
+                font-size: 1.2rem;
+                color: var(--on-surface);
+                background: var(--surface-variant);
+            }
+
+            .social-icon:hover {
+                transform: translateY(-3px);
+            }
+
+            .social-icon.github:hover { background: #333; color: white; }
+            .social-icon.twitter:hover { background: #1DA1F2; color: white; }
+            .social-icon.discord:hover { background: #7289DA; color: white; }
+            .social-icon.linkedin:hover { background: #0077B5; color: white; }
+
+            .footer-bottom {
+                border-top: 1px solid var(--outline-variant);
+                margin-top: 40px;
+                padding-top: 20px;
+            }
+
+            .footer-bottom-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .footer-logo {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .brand-name {
+                font-weight: 600;
+                font-size: 1.2rem;
+            }
+
+            .copyright {
+                color: var(--on-surface-variant);
+            }
+
+            .security-badges {
+                display: flex;
+                gap: 15px;
+            }
+
+            .security-badges img {
+                height: 40px;
+                width: auto;
+            }
+
+            @media (max-width: 768px) {
+                .footer-sections-wrapper {
+                    flex-direction: column;
+                    gap: 30px;
+                }
+
+                .footer-bottom-content {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </footer>
+
+
+    
+    <!-- Dark Mode Support -->
+    <script src="darkMode.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="how-it-works.js"></script>
+    <script src="testimonials.js"></script>
+</body>
+</html>

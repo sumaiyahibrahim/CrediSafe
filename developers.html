@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developers - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="verify.html">Verify Credentials</a></li>
+                    <li><a href="my-credentials.html">My Credentials</a></li>
+                    <li><a href="developers.html" class="active">Developers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="get-api-btn">Get API</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="developer-main">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="floating-dashboard">
+                <div class="hero-content">
+                    <h1>The CrediSafe Developer Hub</h1>
+                    <p class="subtitle">Build • Innovate • Secure</p>
+                </div>
+
+                <div class="api-endpoints">
+                    <div class="endpoint-card" data-aos="fade-up">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <h3>Authentication</h3>
+                        <p class="card-description">Secure API authentication and token management</p>
+                        <code>POST /api/v1/auth</code>
+                        <div class="endpoint-details">
+                            <pre class="code-preview">
+{
+  "method": "POST",
+  "endpoint": "/api/v1/auth",
+  "body": {
+    "apiKey": "your-api-key",
+    "scope": ["read", "write"]
+  }
+}</pre>
+                            <button class="try-btn">Try it Live</button>
+                        </div>
+                    </div>
+
+                    <div class="endpoint-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Verification</h3>
+                        <p class="card-description">Real-time credential verification engine</p>
+                        <code>GET /api/v1/verify</code>
+                        <div class="endpoint-details">
+                            <pre class="code-preview">
+{
+  "method": "GET",
+  "endpoint": "/api/v1/verify",
+  "params": {
+    "credentialId": "cred_123",
+    "type": "academic"
+  }
+}</pre>
+                            <button class="try-btn">Try it Live</button>
+                        </div>
+                    </div>
+
+                    <div class="endpoint-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <h3>Web3</h3>
+                        <p class="card-description">Blockchain wallet integration and smart contracts</p>
+                        <code>POST /api/v1/web3/connect</code>
+                        <div class="endpoint-details">
+                            <pre class="code-preview">
+{
+  "method": "POST",
+  "endpoint": "/api/v1/web3/connect",
+  "body": {
+    "walletAddress": "0x...",
+    "chain": "ethereum"
+  }
+}</pre>
+                            <button class="try-btn">Try it Live</button>
+                        </div>
+                    </div>
+
+                    <div class="endpoint-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="card-glow"></div>
+                        <div class="icon-wrapper">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data Management</h3>
+                        <p class="card-description">Secure credential data storage and retrieval</p>
+                        <code>PUT /api/v1/data/update</code>
+                        <div class="endpoint-details">
+                            <pre class="code-preview">
+{
+  "method": "PUT",
+  "endpoint": "/api/v1/data/update",
+  "body": {
+    "dataId": "data_123",
+    "updates": {
+      "status": "verified"
+    }
+  }
+}</pre>
+                            <button class="try-btn">Try it Live</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-buttons">
+                    <button class="glow-btn">
+                        <span class="btn-content">
+                            <i class="fas fa-book"></i>
+                            Explore API Docs
+                        </span>
+                    </button>
+                    <button class="outline-btn">
+                        <span class="btn-content">
+                            <i class="fas fa-terminal"></i>
+                            Test Live API
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        
+
+
+        
+        <style>
+            .developer-main {
+                min-height: 100vh;
+                background: linear-gradient(135deg, #f0f4ff 0%, #e6eaff 50%, #f0f4ff 100%);
+                padding: 2rem;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .hero-section {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 4rem 2rem;
+            }
+
+            .hero-content {
+                text-align: center;
+                margin-bottom: 4rem;
+            }
+
+            h1 {
+                color: #1a237e;
+                font-size: 3.5rem;
+                margin-bottom: 1rem;
+                font-weight: 700;
+                text-shadow: 0 2px 4px rgba(26, 35, 126, 0.1);
+            }
+
+            .subtitle {
+                color: #3f51b5;
+                font-size: 1.8rem;
+                font-weight: 500;
+                letter-spacing: 2px;
+            }
+
+            .api-endpoints {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2.5rem;
+                margin: 3rem 0;
+            }
+
+            .endpoint-card {
+                background: rgba(255, 255, 255, 0.95);
+                border-radius: 20px;
+                padding: 2.5rem;
+                box-shadow: 0 10px 30px rgba(63, 81, 181, 0.1);
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                position: relative;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+            }
+
+            .card-glow {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: radial-gradient(circle at 50% 0%, rgba(63, 81, 181, 0.1), transparent 70%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            .endpoint-card:hover {
+                transform: translateY(-10px) scale(1.02);
+                box-shadow: 0 20px 40px rgba(63, 81, 181, 0.15);
+            }
+
+            .endpoint-card:hover .card-glow {
+                opacity: 1;
+            }
+
+            .icon-wrapper {
+                background: linear-gradient(135deg, #3f51b5, #7986cb);
+                width: 60px;
+                height: 60px;
+                border-radius: 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 1.5rem;
+                transition: transform 0.3s ease;
+            }
+
+            .icon-wrapper i {
+                font-size: 1.8rem;
+                color: white;
+            }
+
+            .endpoint-card:hover .icon-wrapper {
+                transform: rotate(10deg);
+            }
+
+            .card-description {
+                color: #5c6bc0;
+                margin: 1rem 0;
+                font-size: 0.95rem;
+            }
+
+            .endpoint-card h3 {
+                color: #1a237e;
+                font-size: 1.5rem;
+                margin: 1rem 0;
+                font-weight: 600;
+            }
+
+            .endpoint-card code {
+                display: inline-block;
+                background: #f5f7ff;
+                padding: 0.8rem 1.2rem;
+                border-radius: 12px;
+                color: #3f51b5;
+                font-family: 'Space Mono', monospace;
+                font-size: 0.9rem;
+                margin: 1rem 0;
+                border: 1px solid rgba(63, 81, 181, 0.1);
+            }
+
+            .endpoint-details {
+                height: 0;
+                opacity: 0;
+                transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .endpoint-card:hover .endpoint-details {
+                height: auto;
+                opacity: 1;
+            }
+
+            .code-preview {
+                background: #1a237e;
+                color: #fff;
+                padding: 1.5rem;
+                border-radius: 12px;
+                font-size: 0.9rem;
+                text-align: left;
+                overflow-x: auto;
+                margin: 1rem 0;
+            }
+
+            .try-btn {
+                background: #3f51b5;
+                color: white;
+                border: none;
+                padding: 0.8rem 1.5rem;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                margin-top: 1rem;
+            }
+
+            .try-btn:hover {
+                background: #283593;
+                transform: translateY(-2px);
+            }
+
+            .cta-buttons {
+                margin-top: 4rem;
+                text-align: center;
+            }
+
+            .glow-btn, .outline-btn {
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                font-weight: 600;
+                margin: 0 1rem;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .btn-content {
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .glow-btn {
+                background: linear-gradient(135deg, #3f51b5, #7986cb);
+                color: white;
+                border: none;
+                box-shadow: 0 5px 20px rgba(63, 81, 181, 0.4);
+            }
+
+            .glow-btn:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(63, 81, 181, 0.5);
+            }
+
+            .outline-btn {
+                background: transparent;
+                color: #3f51b5;
+                border: 2px solid #3f51b5;
+            }
+
+            .outline-btn:hover {
+                background: rgba(63, 81, 181, 0.1);
+                transform: translateY(-3px);
+            }
+
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2.5rem;
+                }
+                
+                .subtitle {
+                    font-size: 1.3rem;
+                }
+
+                .cta-buttons {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+
+                .glow-btn, .outline-btn {
+                    margin: 0;
+                }
+            }
+        </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const cards = document.querySelectorAll('.endpoint-card');
+                
+                cards.forEach(card => {
+                    card.addEventListener('mousemove', (e) => {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const xPercent = (x / rect.width - 0.5) * 10;
+                        const yPercent = (y / rect.height - 0.5) * 10;
+                        
+                        card.style.transform = `perspective(1000px) rotateX(${-yPercent}deg) rotateY(${xPercent}deg) translateZ(20px)`;
+                        
+                        const glow = card.querySelector('.card-glow');
+                        glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(63, 81, 181, 0.2), transparent 70%)`;
+                    });
+                    
+                    card.addEventListener('mouseleave', () => {
+                        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                    });
+                });
+
+                // Add smooth scroll for buttons
+                const ctaButtons = document.querySelectorAll('.glow-btn, .outline-btn');
+                ctaButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        button.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            button.style.transform = 'scale(1)';
+                        }, 100);
+                    });
+                });
+            });
+        </script>
+    </main>
+

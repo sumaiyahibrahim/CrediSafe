@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify Identity Documents - CrediSafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="verify-pages.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <!-- Animation Background -->
+    <div class="animation-background"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span class="brand-name">CrediSafe</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="verify.html" class="active">Verify Credentials</a></li>
+                    <li><a href="my-credentials.html">My Credentials</a></li>
+                    <li><a href="developers.html">Developers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button id="darkModeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="profile-dropdown">
+                    <button class="profile-btn">
+                        <img src="https://api.dicebear.com/6.x/initials/svg?seed=CS" alt="Profile" class="profile-img">
+                        <span>Sumaiyah</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="verify-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Verify Identity Documents</h1>
+                <p>Secure verification of National IDs, Passports, Driver's Licenses, and Birth Certificates using AI-enhanced OCR and blockchain technology.</p>
+                <button class="cta-button" onclick="scrollToVerification()">Start Verification</button>
+            </div>
+        </section>
+
+        <!-- Verification Form Section -->
+        <section class="verification-form" id="verificationForm">
+            <div class="form-container glass-effect">
+                <div class="form-header">
+                    <h2>Document Verification</h2>
+                    <p>Upload your identity document for secure verification</p>
+                </div>
+
+                <div class="upload-area">
+                    <div class="drag-drop-zone" id="dragDropZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & Drop your document here or</p>
+                        <button class="upload-btn">Choose File</button>
+                        <input type="file" id="fileInput" hidden accept=".pdf,.jpg,.jpeg,.png">
+                    </div>
+                    <div class="supported-docs">
+                        <p>Supported documents:</p>
+                        <ul>
+                            <li><i class="fas fa-id-card"></i> National ID</li>
+                            <li><i class="fas fa-passport"></i> Passport</li>
+                            <li><i class="fas fa-id-badge"></i> Driver's License</li>
+                            <li><i class="fas fa-file-alt"></i> Birth Certificate</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="verification-progress" style="display: none;">
+                    <div class="progress-steps">
+                        <div class="step">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Scanning</span>
+                            <div class="step-progress"></div>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-cubes"></i>
+                            <span>Blockchain Verification</span>
+                            <div class="step-progress"></div>
+                        </div>
+                        <div class="step">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Fraud Detection</span>
+                            <div class="step-progress"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="verification-result" style="display: none;">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Verification Successful</h3>
+                    </div>
+                    <div class="result-details">
+                        <div class="detail-item">
+                            <span>Document Type:</span>
+                            <span id="docType">National ID</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Verification Hash:</span>
+                            <span id="verificationHash">0x1a2b3c...</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Verified On:</span>
+                            <span id="verificationDate">Feb 16, 2024</span>
+                        </div>
+                    </div>
+                    <div class="result-actions">
+                        <button class="action-btn download">
+                            <i class="fas fa-download"></i> Download Certificate
+                        </button>
+                        <button class="action-btn share">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <button class="action-btn store">
+                            <i class="fas fa-wallet"></i> Store in Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compliance Section -->
+        <section class="compliance-section">
+            <div class="compliance-container glass-effect">
+                <h2>Regulatory Compliance</h2>
+                <div class="compliance-grid">
+                    <a href="#" class="compliance-card">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Legal Guidelines</h3>
+                        <p>View official regulatory requirements for identity verification</p>
+                    </a>
+                    <a href="#" class="compliance-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security Policy</h3>
+                        <p>Learn about our document handling and verification process</p>
+                    </a>
+                    <a href="#" class="compliance-card">
+                        <i class="fas fa-lock"></i>
+                        <h3>Privacy Policy</h3>
+                        <p>Understanding how we protect your personal information</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer glass-effect">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-container">
+                    <svg class="logo" width="40" height="40" viewBox="0 0 40 40">
+                        <path class="logo-path" d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm0 4c7.732 0 14 6.268 14 14s-6.268 14-14 14S6 27.732 6 20 12.268 6 20 6zm0 4c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10-4.477-10-10-10zm0 4c3.314 0 6 2.686 6 6s-2.686 6-6 6-6-2.686-6-6 2.686-6 6-6z"/>
+                    </svg>
+                    <span>CrediSafe</span>
+                </div>
+                <p>Secure. Verify. Trust.</p>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#">support@credisafe.in</a></li>
+                        <li><a href="#">+91 (800) 123-4567</a></li>
+                        <li>
+                            123 Tech Park, Sector 15<br>
+                            Gurugram, Haryana 122001<br>
+                            India
+                        </li>
+                    </ul>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 CrediSafe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="darkMode.js"></script>
+    <script src="verify-identity.js"></script>
+</body>
+</html>

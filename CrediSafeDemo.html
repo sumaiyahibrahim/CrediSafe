@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrediSafe - Live Verification</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F3F4F6; /* Soft pastel background */
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Logo Styling */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            background: linear-gradient(90deg, #2563EB, #14C8C0); /* Blue to Teal Gradient */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-left: 10px;
+        }
+
+        /* Shield Icon */
+        .shield {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #2563EB; /* Blue Shield */
+            border-radius: 10px 10px 5px 5px;
+            position: relative;
+        }
+
+        /* Checkmark */
+        .shield::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 20px;
+            border-right: 4px solid #14C8C0; /* Teal Checkmark */
+            border-bottom: 4px solid #14C8C0;
+            transform: rotate(45deg);
+            bottom: 5px;
+            left: 10px;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #374151; /* Dark gray-blue */
+        }
+
+        p {
+            font-size: 16px;
+            color: #6B7280; /* Muted gray */
+        }
+
+        /* Verification Box */
+        .verification-container {
+            background: #FFFFFF;
+            padding: 25px;
+            border-radius: 12px;
+            width: 360px;
+            text-align: center;
+            box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid #E5E7EB;
+        }
+
+        input {
+            width: 90%;
+            padding: 12px;
+            border: 1px solid #D1D5DB;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+            background: #F9FAFB;
+            color: #374151;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input::placeholder {
+            color: #9CA3AF;
+        }
+
+        input:focus {
+            border-color: #2563EB;
+        }
+
+        button {
+            background: #93C5FD; /* Pastel blue */
+            color: #1E3A8A; /* Dark blue text */
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background: #60A5FA; /* Slightly darker pastel blue */
+        }
+
+        /* Result Message */
+        .result {
+            font-size: 18px;
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            display: none;
+            font-weight: bold;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            display: flex;
+        }
+
+        .success {
+            background: #D1FAE5; /* Soft pastel green */
+            color: #047857;
+            border: 1px solid #047857;
+        }
+
+        .error {
+            background: #FECACA; /* Soft pastel red */
+            color: #B91C1C;
+            border: 1px solid #B91C1C;
+        }
+
+        /* Icon Styling */
+        .icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CrediSafe Logo -->
+    <div class="logo-container">
+        <div class="shield"></div>
+        <span class="logo">CrediSafe</span>
+    </div>
+
+    <h1>Live Credential Verification</h1>
+    <p>Enter a credential ID to verify its authenticity.</p>
+
+    <div class="verification-container">
+        <input type="text" id="credentialInput" placeholder="Enter Credential ID">
+        <button onclick="verifyCredential()">Verify Now</button>
+        <div id="resultMessage" class="result">
+            <img id="statusIcon" class="icon" src="" alt="Status Icon">
+            <span id="statusText"></span>
+        </div>
+    </div>
+
+    <script>
+        function verifyCredential() {
+            let validIDs = ["1234-ABCD", "5678-EFGH", "9999-XYZ"];
+            let input = document.getElementById("credentialInput").value.trim();
+            let result = document.getElementById("resultMessage");
+            let statusIcon = document.getElementById("statusIcon");
+            let statusText = document.getElementById("statusText");
+
+            if (input === "") {
+                statusText.innerHTML = "Please enter a credential ID!";
+                result.className = "result error";
+                statusIcon.src = "https://cdn-icons-png.flaticon.com/512/1828/1828843.png"; // Warning icon
+            } else if (validIDs.includes(input)) {
+                statusText.innerHTML = "Verified: This credential is valid!";
+                result.className = "result success";
+                statusIcon.src = "https://cdn-icons-png.flaticon.com/512/845/845646.png"; // Green check icon
+            } else {
+                statusText.innerHTML = "Invalid: This credential does not exist!";
+                result.className = "result error";
+                statusIcon.src = "https://cdn-icons-png.flaticon.com/512/753/753345.png"; // Red cross icon
+            }
+
+            result.style.display = "flex";
+            result.style.animation = "fadeIn 0.3s ease-in-out";
+        }
+    </script>
+
+</body>
+</html>

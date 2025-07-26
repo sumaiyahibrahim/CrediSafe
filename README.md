@@ -1,6 +1,6 @@
 # CrediSafe – AI & Blockchain Credential Verifier
 
-[View Project](sumaiyahibrahim.github.io/CrediSafe/)
+[Live here!](https://sumaiyahibrahim.github.io/CrediSafe/)
 
 CrediSafe is a responsive frontend web application designed to simplify and secure credential verification using AI-enhanced UI and blockchain-inspired concepts.
 
